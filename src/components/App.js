@@ -1,17 +1,21 @@
-import React, { Component, useState } from "react";
-import "../styles/App.css";
-
-class App extends Component {
-  render() {
-    let relatives = ["bhanu", "prashansha", "rashi"];
-    return (
-      <ol key="relativeList">
-        {relatives.map((relative, index) => (
-          <li key={`relativeListItem${index + 1}`}>{relative}</li>
-        ))}
-      </ol>
-    );
-  }
+import React from 'react'
+import '../styles/App.css';
+const arr = JSON.parse(window.localStorage.getItem('props') || `["hello","world"]`) // do not change
+const Join = (props) =>{
+  return(
+    <div id ="join">
+      <p>{props.words.join(",")}</p>
+    </div>
+  )
 }
+const App = () => {
+
+  return (
+    <div id="main">
+      <Join words = {arr}/>
+    </div>
+  )
+}
+
 
 export default App;
